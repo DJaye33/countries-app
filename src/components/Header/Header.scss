@@ -3,10 +3,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 3rem 1.6rem;
+  background-color: var(--color-pure-white);
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.0562443);
+  transition: 0.3s;
 
-  transition: 0.2s;
   &--dark {
     background-color: var(--color-dark-blue);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.0562443);
   }
 
   &__title {
@@ -14,9 +17,21 @@
     font-size: 1.4rem;
     line-height: 2rem;
     color: var(--light-mode-dark-blue);
-    transition: 0.2s;
+    transition: 0.3s;
     &--dark {
       color: var(--color-pure-white);
+    }
+  }
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .Header {
+    padding: 2.3rem 8.1rem;
+
+    &__title {
+      font-size: 2.4rem;
+      line-height: 3.3rem;
     }
   }
 }

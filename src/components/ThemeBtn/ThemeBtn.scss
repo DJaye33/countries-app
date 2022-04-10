@@ -9,6 +9,7 @@
   border: none;
   outline: none;
   background-color: transparent;
+  transition: 0.3s;
 
   & svg {
     margin-right: 0.8rem;
@@ -17,4 +18,10 @@
   &--dark {
     color: var(--color-pure-white);
   }
+}
+
+/* Media Queries */
+.ThemeBtn {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
 }

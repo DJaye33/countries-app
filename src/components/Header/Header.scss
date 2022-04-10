@@ -1,0 +1,22 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 1.6rem;
+
+  transition: 0.2s;
+  &--dark {
+    background-color: var(--color-dark-blue);
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: var(--light-mode-dark-blue);
+    transition: 0.2s;
+    &--dark {
+      color: var(--color-pure-white);
+    }
+  }
+}

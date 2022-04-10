@@ -1,0 +1,20 @@
+.ThemeBtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: var(--light-mode-dark-blue);
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  & svg {
+    margin-right: 0.8rem;
+  }
+
+  &--dark {
+    color: var(--color-pure-white);
+  }
+}

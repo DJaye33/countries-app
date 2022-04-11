@@ -15,7 +15,7 @@
   --color-dark-blue: hsl(209, 23%, 22%);
   --color-dark-mode-dark-blue: hsl(207, 26%, 17%);
   --color-light-mode-dark-blue: hsl(200, 15%, 8%);
-  --color-dark-mode-dark-gray: hsl(0, 0%, 52%);
+  --color-light-mode-dark-gray: hsl(0, 0%, 52%);
   --color-light-mode-light-gray: hsl(0, 0%, 98%);
   --color-pure-white: hsl(0, 0%, 100%);
 }
@@ -42,4 +42,9 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
 }

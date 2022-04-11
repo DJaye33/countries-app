@@ -8,7 +8,7 @@ const MainForms = () => {
     <section className="MainForms">
       <form className="MainForms__country">
         <FaSearch className="MainForms__icon" />
-        <label>
+        <label className="MainForms__label">
           <input
             className="MainForms__input"
             type="text"

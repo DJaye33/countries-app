@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 import { FaSearch, FaChevronUp, FaChevronDown } from "react-icons/fa";
 import "./MainForms.scss";
 
 const MainForms = () => {
+  const [isActive, setIsActive] = useState(false);
+  const context = useContext(ThemeContext);
+
+  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
   return (
     <section className="MainForms">
-      <form className="MainForms__country">
-        <FaSearch className="MainForms__icon" />
+      <form
+        className={`MainForms__country MainForms__country--${
+          context.theme === "dark" ? "dark" : ""
+        }`}
+      >
+        <FaSearch
+          className={`MainForms__icon MainForms__icon--${
+            context.theme === "dark" ? "dark" : ""
+          }`}
+        />
         <label className="MainForms__label">
           <input
-            className="MainForms__input"
+            className={`MainForms__input MainForms__input--${
+              context.theme === "dark" ? "dark" : ""
+            }`}
             type="text"
             name="country"
             placeholder="Search for a country..."
@@ -18,26 +34,36 @@ const MainForms = () => {
         </label>
       </form>
       <div className="MainForms__region">
-        <button className="MainForms__btn">
-          Filter by Region <FaChevronDown />
+        <button
+          className={`MainForms__btn MainForms__btn--${
+            context.theme === "dark" ? "dark" : ""
+          }`}
+        >
+          Filter by Region{" "}
+          <FaChevronDown
+            className={`MainForms__chev MainForms__chev--${
+              context.theme === "dark" ? "dark" : ""
+            }`}
+          />
         </button>
-        <div className="MainForms__links">
-          {/* TODO: Convert a tag to react router Links */}
-          <a href="#about" className="MainForms__link">
-            Africa
-          </a>
-          <a href="#base" className="MainForms__link">
-            America
-          </a>
-          <a href="#blog" className="MainForms__link">
-            Asia
-          </a>
-          <a href="#contact" className="MainForms__link">
-            Europe
-          </a>
-          <a href="#custom" className="MainForms__link">
-            Oceania
-          </a>
+        <div
+          className={`MainForms__links MainForms__links--${
+            context.theme === "dark" ? "dark" : ""
+          }`}
+        >
+          {/* TODO: Convert a tag to react router Links
+              FIXME: programmatically add dark theme to router Link */}
+          {regions.map((region) => (
+            <a
+              href={`/${region}`}
+              key={region}
+              className={`MainForms__link MainForms__link--${
+                context.theme === "dark" ? "dark" : ""
+              }`}
+            >
+              {region}
+            </a>
+          ))}
         </div>
       </div>
     </section>

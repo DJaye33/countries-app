@@ -5,10 +5,18 @@ import { FaSearch, FaChevronUp, FaChevronDown } from "react-icons/fa";
 import "./MainForms.scss";
 
 const MainForms = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
   const context = useContext(ThemeContext);
 
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
+  const toggleMenu = () => {
+    if (isMenuActive) {
+      setIsMenuActive(false);
+    } else {
+      setIsMenuActive(true);
+    }
+  };
 
   return (
     <section className="MainForms">
@@ -35,6 +43,7 @@ const MainForms = () => {
       </form>
       <div className="MainForms__region">
         <button
+          onClick={toggleMenu}
           className={`MainForms__btn MainForms__btn--${
             context.theme === "dark" ? "dark" : ""
           }`}
@@ -48,8 +57,8 @@ const MainForms = () => {
         </button>
         <div
           className={`MainForms__links MainForms__links--${
-            context.theme === "dark" ? "dark" : ""
-          }`}
+            isMenuActive ? "active" : ""
+          } MainForms__links--${context.theme === "dark" ? "dark" : ""}`}
         >
           {/* TODO: Convert a tag to react router Links
               FIXME: programmatically add dark theme to router Link */}

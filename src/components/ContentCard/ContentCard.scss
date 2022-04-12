@@ -1,0 +1,40 @@
+.ContentCard {
+  display: block;
+  color: var(--color-light-mode-dark-blue);
+  background-color: var(--color-pure-white);
+  width: 26.4rem;
+  margin: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.7rem 0.2rem rgba(0, 0, 0, 0.0294384);
+
+  .ContentCard__img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  &__content {
+    padding: 2.4rem;
+
+    .ContentCard__name {
+      font-weight: 800;
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .ContentCard__info {
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      margin-bottom: 0.8rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      & span {
+        font-weight: 600;
+      }
+    }
+  }
+}

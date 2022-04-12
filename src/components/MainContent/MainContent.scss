@@ -3,3 +3,26 @@
   row-gap: 4rem;
   margin-top: 4rem;
 }
+
+/* @media Queries */
+@media(min-width: 768px) {
+    .MainContent {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+@media(min-width: 1024px) {
+    .MainContent {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(min-width: 1440px) {
+    .MainContent {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1280px;
+        gap: 7.5rem;
+        margin: 0 auto;
+    }
+}

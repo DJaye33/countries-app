@@ -3,13 +3,10 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import "./ContentCard.scss";
 
-function ContentCard({ countries }) {
+function ContentCard({ country }) {
   const context = useContext(ThemeContext);
   return (
-    <>
-      {countries.map((country) => (
         <a
-          key={country.name?.common}
           href="/"
           className={`ContentCard ContentCard--${
             context.theme === "dark" ? "dark" : ""
@@ -36,8 +33,6 @@ function ContentCard({ countries }) {
             </p>
           </div>
         </a>
-      ))}
-    </>
   );
 }
 

@@ -6,7 +6,10 @@ import "./MainContent.scss";
 const MainContent = ({ countries }) => {
   return (
     <section className="MainContent">
-      <ContentCard countries={countries}/>
+      {/* <ContentCard countries={countries}/> */}
+      {countries.map((country) => (
+        <ContentCard key={country.name?.common} country={country} />
+      ))}
     </section>
   );
 };

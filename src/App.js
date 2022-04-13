@@ -9,23 +9,40 @@ import "./App.scss";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [search, setSearch] = useState("");
   const context = useContext(ThemeContext);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const data = await response.json();
-      // data.filter(country => console.log(country))
-      setCountries(data)
+      setCountries(data);
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    console.log(search)
+  }, [search])
+
+  const handleFormSubmit = (evt) => {
+    evt.preventDefault();
+    setSearch("");
+  };
+
+  const handleFormSearch = (evt) => {
+    setSearch(evt.target.value);
+  };
 
   return (
     <div className={`App App--${context.theme === "dark" ? "dark" : ""}`}>
       <Header />
       <MainContainer>
-        <MainForms />
+        <MainForms
+          search={search}
+          onFormSubmit={handleFormSubmit}
+          onFormSearch={handleFormSearch}
+        />
         <MainContent countries={countries} />
       </MainContainer>
     </div>

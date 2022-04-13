@@ -2,23 +2,32 @@
   display: block;
   color: var(--color-light-mode-dark-blue);
   background-color: var(--color-pure-white);
-  min-width: 26.4rem;
+  width: 26.4rem;
   height: 33.6rem;
   margin: auto;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.7rem 0.2rem rgba(0, 0, 0, 0.0294384);
   transition: 0.3s;
 
+  &--dark {
+    color: var(--color-pure-white);
+    background-color: var(--color-dark-blue);
+  }
+
   &:hover {
     transform: translateY(-1rem);
   }
 
-  .ContentCard__img {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+  .ContentCard__img-wrap {
     height: 16rem;
     width: 100%;
-    object-fit: fill;
+
+    .ContentCard__img {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   &__content {

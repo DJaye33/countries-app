@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-import { FaSearch, FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaSearch, FaChevronDown } from "react-icons/fa";
 import "./MainForms.scss";
 
-const MainForms = () => {
+const MainForms = ({ onFormSubmit, onFormSearch, search }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const context = useContext(ThemeContext);
 
@@ -21,6 +21,7 @@ const MainForms = () => {
   return (
     <section className="MainForms">
       <form
+        onSubmit={onFormSubmit}
         className={`MainForms__country MainForms__country--${
           context.theme === "dark" ? "dark" : ""
         }`}
@@ -32,6 +33,8 @@ const MainForms = () => {
         />
         <label className="MainForms__label">
           <input
+            value={search}
+            onChange={onFormSearch}
             className={`MainForms__input MainForms__input--${
               context.theme === "dark" ? "dark" : ""
             }`}

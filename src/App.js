@@ -16,15 +16,14 @@ function App() {
     async function fetchData() {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const data = await response.json();
-      console.log(data[0])
       setCountries(data);
     }
     fetchData();
   }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.log(search)
-  }, [search])
+  }, [search]) */
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
@@ -44,7 +43,7 @@ function App() {
           onFormSubmit={handleFormSubmit}
           onFormSearch={handleFormSearch}
         />
-        <MainContent countries={countries} />
+        <MainContent search={search} countries={countries} />
       </MainContainer>
     </div>
   );

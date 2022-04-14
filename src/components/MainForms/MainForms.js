@@ -8,7 +8,7 @@ const MainForms = ({ onRegionSelect, onFormSubmit, onFormSearch, search }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const context = useContext(ThemeContext);
 
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   const toggleMenu = () => {
     if (isMenuActive) {
@@ -16,6 +16,11 @@ const MainForms = ({ onRegionSelect, onFormSubmit, onFormSearch, search }) => {
     } else {
       setIsMenuActive(true);
     }
+  };
+
+  const callSelectRegionWithToggle = (evt) => {
+    onRegionSelect(evt);
+    toggleMenu();
   };
 
   return (
@@ -65,7 +70,7 @@ const MainForms = ({ onRegionSelect, onFormSubmit, onFormSearch, search }) => {
         >
           {regions.map((region) => (
             <button
-              onClick={onRegionSelect}
+              onClick={callSelectRegionWithToggle}
               value={region}
               href={`/${region}`}
               key={region}

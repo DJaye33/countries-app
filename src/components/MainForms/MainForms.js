@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { FaSearch, FaChevronDown } from "react-icons/fa";
 import "./MainForms.scss";
 
-const MainForms = ({ onFormSubmit, onFormSearch, search }) => {
+const MainForms = ({ onRegionSelect, onFormSubmit, onFormSearch, search }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const context = useContext(ThemeContext);
 
@@ -63,10 +63,10 @@ const MainForms = ({ onFormSubmit, onFormSearch, search }) => {
             isMenuActive ? "active" : ""
           } MainForms__links--${context.theme === "dark" ? "dark" : ""}`}
         >
-          {/* TODO: Convert a tag to react router Links
-              FIXME: programmatically add dark theme to router Link */}
           {regions.map((region) => (
-            <a
+            <button
+              onClick={onRegionSelect}
+              value={region}
               href={`/${region}`}
               key={region}
               className={`MainForms__link MainForms__link--${
@@ -74,7 +74,7 @@ const MainForms = ({ onFormSubmit, onFormSearch, search }) => {
               }`}
             >
               {region}
-            </a>
+            </button>
           ))}
         </div>
       </div>

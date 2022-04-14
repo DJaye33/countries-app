@@ -167,6 +167,10 @@
 
       .MainForms__links {
         .MainForms__link {
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          text-align: left;
           font-size: 1.4rem;
           line-height: 2rem;
         }

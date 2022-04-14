@@ -9,6 +9,7 @@ import "./App.scss";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [region, setRegion] = useState("");
   const [search, setSearch] = useState("");
   const context = useContext(ThemeContext);
 
@@ -16,14 +17,15 @@ function App() {
     async function fetchData() {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const data = await response.json();
+      console.log(data[0]);
       setCountries(data);
     }
     fetchData();
   }, []);
 
-  /* useEffect(() => {
-    console.log(search)
-  }, [search]) */
+  useEffect(() => {
+    console.log(search, region);
+  }, [search, region]);
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
@@ -31,7 +33,14 @@ function App() {
   };
 
   const handleFormSearch = (evt) => {
+    evt.preventDefault();
+    setRegion("")
     setSearch(evt.target.value);
+  };
+
+  const handleRegionSelect = (evt) => {
+    setSearch("")
+    setRegion(evt.target.value);
   };
 
   return (
@@ -42,8 +51,9 @@ function App() {
           search={search}
           onFormSubmit={handleFormSubmit}
           onFormSearch={handleFormSearch}
+          onRegionSelect={handleRegionSelect}
         />
-        <MainContent search={search} countries={countries} />
+        <MainContent region={region} search={search} countries={countries} />
       </MainContainer>
     </div>
   );

@@ -3,7 +3,6 @@ import Header from "./components/Header/Header";
 import MainContainer from "./components/MainContainer/MainContainer";
 import MainForms from "./components/MainForms/MainForms";
 import MainContent from "./components/MainContent/MainContent";
-import Details from "./pages/Details/Details";
 import { ThemeContext } from "./context/ThemeContext";
 
 import "./App.scss";
@@ -47,16 +46,17 @@ function App() {
   return (
     <div className={`App App--${context.theme === "dark" ? "dark" : ""}`}>
       <Header />
-      <Details />
-      {/* <MainContainer>
-        <MainForms
-          search={search}
-          onFormSubmit={handleFormSubmit}
-          onFormSearch={handleFormSearch}
-          onRegionSelect={handleRegionSelect}
-        />
-        <MainContent region={region} search={search} countries={countries} />
-      </MainContainer> */}
+      {
+        <MainContainer>
+          <MainForms
+            search={search}
+            onFormSubmit={handleFormSubmit}
+            onFormSearch={handleFormSearch}
+            onRegionSelect={handleRegionSelect}
+          />
+          <MainContent region={region} search={search} countries={countries} />
+        </MainContainer>
+      }
     </div>
   );
 }

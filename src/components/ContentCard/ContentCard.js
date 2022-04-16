@@ -9,7 +9,7 @@ function ContentCard({ country }) {
   const context = useContext(ThemeContext);
   return (
     <Link
-      to={`/${removeAccents(country.name?.common)}`}
+      to="/"
       className={`ContentCard ContentCard--${
         context.theme === "dark" ? "dark" : ""
       }`}
